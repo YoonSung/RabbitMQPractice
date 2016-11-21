@@ -4,6 +4,7 @@ import com.rabbitmq.client.*;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
@@ -16,6 +17,7 @@ public class HelloworldTest {
 		String QUEUE_NAME = "hello";
 
 		Sender sender = new Sender(HOST, QUEUE_NAME);
+		Thread.sleep(1000);
 		Receiver receiver = new Receiver(HOST, QUEUE_NAME);
 		
 		sender.send("Hello World!");
@@ -59,6 +61,7 @@ public class HelloworldTest {
 			Channel channel = client.createChannel();
 			channel.basicPublish("", queueName, null, message.getBytes("UTF-8"));
 			System.out.println(" [Sender] Sent : '" + message + "'");
+			System.out.println(LocalDateTime.now());
 			return channel;
 		}
 	}
@@ -80,6 +83,7 @@ public class HelloworldTest {
 						throws IOException {
 					String message = new String(body, "UTF-8");
 					System.out.println(" [Receiver] Received '" + message + "'");
+					System.out.println(LocalDateTime.now());
 				}
 			};
 			channel.basicConsume(queueName, true, consumer);

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HelloworldTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2016-11-20T16:13:10" hostname="Rhyno-MacBook-Pro.local" time="0.07">
-  <properties/>
-  <testcase name="test" classname="HelloworldTest" time="0.07"/>
-  <system-out><![CDATA[ [Sender] Sent : 'Hello World!'
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
